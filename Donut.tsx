@@ -22,7 +22,7 @@ export default ({
 
   const getProps = (stroke: string) => ({
     r: radius,
-    fill: 'transparent',
+    fill: 'none',
     stroke,
     strokeWidth: thickness || size / 10,
     strokeDasharray: length,
