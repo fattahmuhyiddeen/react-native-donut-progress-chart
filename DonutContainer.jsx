@@ -12,8 +12,9 @@ const Part = ({index, total, size, data, state}) => {
   let top = 0;
   if (index) {
     data.slice(0, index).forEach(d => {
+      const pcent = (d.value / total) * 100;
       // TODO use parabolic function to get exact value
-      top += (((d.value / total) * 100) / 50) * size;
+      top += (pcent / 50) * size;
     });
   }
 
@@ -28,8 +29,10 @@ const Part = ({index, total, size, data, state}) => {
     onPress: () => state[1](index),
   };
 
+  const components = [];
+
   if (top >= size) {
-    return (
+    components.push(
       <Pressable
         {...props}
         style={[
@@ -39,7 +42,7 @@ const Part = ({index, total, size, data, state}) => {
             bottom: top - size,
           },
         ]}
-      />
+      />,
     );
   }
 
@@ -48,7 +51,7 @@ const Part = ({index, total, size, data, state}) => {
 
   if (height + top > size) height = size - top;
 
-  return (
+  components.push(
     <>
       <Pressable {...props} style={[style, {height, right: 0, top}]} />
       {!!part2Height && (
@@ -57,8 +60,10 @@ const Part = ({index, total, size, data, state}) => {
           style={[style, {height: part2Height, bottom: 0}]}
         />
       )}
-    </>
+    </>,
   );
+
+  return components;
 };
 
 export default props => {
