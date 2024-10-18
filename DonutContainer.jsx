@@ -1,10 +1,11 @@
 import React, {useState} from 'react';
 import Donut from './Donut';
-import {Pressable, View} from 'react-native';
+import {Pressable, StyleSheet, View} from 'react-native';
 
 const Part = ({index, total, size, data, state}) => {
   const width = size / 2;
-  const percent = (data[index].value / total) * 100;
+  const item = data[index];
+  const percent = (item.value / total) * 100;
   let height = 0;
   if (percent >= 50) height = size;
   // TODO use parabolic function to get exact value
@@ -19,7 +20,7 @@ const Part = ({index, total, size, data, state}) => {
   }
 
   const style = {
-    // backgroundColor: data[index].color,
+    // backgroundColor: item.color,
     // opacity: 0.5,
     width,
     position: 'absolute',
@@ -62,6 +63,12 @@ const Part = ({index, total, size, data, state}) => {
       </>,
     );
   }
+
+  if (state[0] === index && item.legend) {
+    components.push(
+      <View style={[styles.legend, {left: size}]}>{item.legend}</View>,
+    );
+  }
   return components;
 };
 
@@ -84,3 +91,17 @@ export default props => {
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  legend: {
+    position: 'absolute',
+    padding: 10,
+    backgroundColor: 'white',
+    shadowColor: '#171717',
+    shadowOffset: {width: 0, height: 1},
+    shadowOpacity: 0.2,
+    shadowRadius: 3,
+    elevation: 3,
+    borderRadius: 10,
+  },
+});
