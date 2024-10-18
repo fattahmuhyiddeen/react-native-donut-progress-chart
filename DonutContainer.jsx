@@ -67,21 +67,21 @@ const Part = ({index, total, size, data, state}) => {
 
   if (state[0] === index && item.legend) {
 
-    const style = {};
+    const styl = {};
     if (cumulativePercent + percent <= 25) {
-      style.left = size;
-      style.top = top;
+      styl.left = size;
+      styl.top = top;
     } else if (cumulativePercent + percent <= 50) {
-      style.left = size;
-      style.bottom = size - top - height;
+      styl.left = size;
+      styl.bottom = size - top - height;
     } else if (cumulativePercent + percent <= 75) {
-      style.right = size;
-      style.bottom = Math.max(0, top - size);
+      styl.right = size;
+      styl.bottom = Math.max(0, top - size);
     } else {
-      style.right = size;
-      style.top = size * 2 - acc;
+      styl.right = size;
+      styl.top = size * 2 - acc;
     }
-    components.push(<View style={[styles.legend, style]}>{item.legend}</View>);
+    components.push(<View style={[styles.legend, styl]}>{item.legend}</View>);
   }
   return components;
 };
