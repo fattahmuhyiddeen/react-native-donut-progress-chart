@@ -32,21 +32,21 @@ const Part = ({index, total, size, data, state}) => {
 
   const components = [];
 
-  if (top >= size) {
+    const acc = top + height;
+    if (top >= size) {
     components.push(
       <Pressable
         {...props}
         style={[
           style,
           {
-            height: height + top > size * 2 ? height + top - size * 2 : height,
+            height: acc > size * 2 ? acc - size * 2 : height,
             bottom: top - size,
           },
         ]}
       />,
     );
   } else {
-    const acc = top + height;
     const part2Height = top < size && acc > size ? acc - size : 0;
 
     if (acc > size) height = size - top;

@@ -6,7 +6,7 @@ const App = () => {
     <View style={{marginTop: 100}}>
       <DonutContainer
         total={1000}
-        size={200}
+        size={150}
         data={[
           {
             value: 100,
