@@ -1,11 +1,10 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Donut from './Donut';
 import {Pressable, View} from 'react-native';
 
-const Part = ({index, total, size, data}) => {
+const Part = ({index, total, size, data, state}) => {
   const width = size / 2;
-  const {value, color} = data[index];
-  const percent = (value / total) * 100;
+  const percent = (data[index].value / total) * 100;
   let height = 0;
   if (percent >= 50) height = size;
   // TODO use parabolic function to get exact value
@@ -19,15 +18,20 @@ const Part = ({index, total, size, data}) => {
   }
 
   const style = {
-    // backgroundColor: color,
+    // backgroundColor: data[index].color,
+    // opacity: 0.5,
     width,
     position: 'absolute',
+  };
+
+  const props = {
+    onPress: () => state[1](index),
   };
 
   if (top >= size) {
     return (
       <Pressable
-        onPress={() => alert(color)}
+        {...props}
         style={[
           style,
           {
@@ -46,35 +50,20 @@ const Part = ({index, total, size, data}) => {
 
   return (
     <>
-      <Pressable
-        onPress={() => alert(color)}
-        style={[
-          style,
-          {
-            height,
-            right: 0,
-            top,
-          },
-        ]}
-      />
+      <Pressable {...props} style={[style, {height, right: 0, top}]} />
       {!!part2Height && (
         <Pressable
-          onPress={() => alert(color)}
-          style={[
-            style,
-            {
-              height: part2Height,
-              bottom: 0,
-            },
-          ]}
+          {...props}
+          style={[style, {height: part2Height, bottom: 0}]}
         />
       )}
     </>
   );
 };
 
-export default (props) => {
-  const {size = 200, total, data} = props;
+export default props => {
+  const {size = 200, data} = props;
+  const state = useState();
   return (
     <View style={{alignItems: 'center', justifyContent: 'center'}}>
       <Donut {...props} />
@@ -85,19 +74,7 @@ export default (props) => {
           width: size,
         }}>
         {data.map((d, i) => (
-          <Part
-            {...d}
-            total={total}
-            size={size}
-            index={i}
-            data={data}
-            // acc={data
-            //   .slice(0, i + 1)
-            //   .reduce(
-            //     (acc, d, i) => (i === 0 ? 0 : data[i - 1].value + acc),
-            //     0,
-            //   )}
-          />
+          <Part {...props} index={i} state={state} />
         ))}
       </View>
     </View>
