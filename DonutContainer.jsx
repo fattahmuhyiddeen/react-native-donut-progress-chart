@@ -73,7 +73,7 @@ const Part = ({index, total, size, data}) => {
   );
 };
 
-export default (props: DonutProps) => {
+export default (props) => {
   const {size = 200, total, data} = props;
   return (
     <View style={{alignItems: 'center', justifyContent: 'center'}}>
