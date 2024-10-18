@@ -44,25 +44,24 @@ const Part = ({index, total, size, data, state}) => {
         ]}
       />,
     );
+  } else {
+    const part2Height =
+      top < size && top + height > size ? top + height - size : 0;
+
+    if (height + top > size) height = size - top;
+
+    components.push(
+      <>
+        <Pressable {...props} style={[style, {height, right: 0, top}]} />
+        {!!part2Height && (
+          <Pressable
+            {...props}
+            style={[style, {height: part2Height, bottom: 0}]}
+          />
+        )}
+      </>,
+    );
   }
-
-  const part2Height =
-    top < size && top + height > size ? top + height - size : 0;
-
-  if (height + top > size) height = size - top;
-
-  components.push(
-    <>
-      <Pressable {...props} style={[style, {height, right: 0, top}]} />
-      {!!part2Height && (
-        <Pressable
-          {...props}
-          style={[style, {height: part2Height, bottom: 0}]}
-        />
-      )}
-    </>,
-  );
-
   return components;
 };
 
