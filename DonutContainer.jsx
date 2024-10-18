@@ -7,23 +7,25 @@ const Part = ({index, total, size, data, state}) => {
   const item = data[index];
   const percent = (item.value / total) * 100;
   let height = 0;
-  if (percent >= 50) height = size;
+
   // TODO use parabolic function to get exact value
-  else height = (percent / 50) * size;
+  const getHeight = p => (p / 50) * size;
+
+  if (percent >= 50) height = size;
+  else height = getHeight(percent);
   let top = 0;
   let cumulativePercent = 0;
   if (index) {
     data.slice(0, index).forEach(d => {
       const pcent = (d.value / total) * 100;
       cumulativePercent += pcent;
-      // TODO use parabolic function to get exact value
-      top += (pcent / 50) * size;
+      top += getHeight(pcent);
     });
   }
 
   const style = {
-    // backgroundColor: item.color,
-    // opacity: 0.5,
+    backgroundColor: item.color,
+    opacity: 0.5,
     width,
     position: 'absolute',
   };
