@@ -11,9 +11,11 @@ const Part = ({index, total, size, data, state}) => {
   // TODO use parabolic function to get exact value
   else height = (percent / 50) * size;
   let top = 0;
+  let cumulativePercent = 0;
   if (index) {
     data.slice(0, index).forEach(d => {
       const pcent = (d.value / total) * 100;
+      cumulativePercent += pcent;
       // TODO use parabolic function to get exact value
       top += (pcent / 50) * size;
     });
@@ -32,8 +34,8 @@ const Part = ({index, total, size, data, state}) => {
 
   const components = [];
 
-    const acc = top + height;
-    if (top >= size) {
+  const acc = top + height;
+  if (top >= size) {
     components.push(
       <Pressable
         {...props}
@@ -48,7 +50,6 @@ const Part = ({index, total, size, data, state}) => {
     );
   } else {
     const part2Height = top < size && acc > size ? acc - size : 0;
-
     if (acc > size) height = size - top;
 
     components.push(
@@ -65,9 +66,22 @@ const Part = ({index, total, size, data, state}) => {
   }
 
   if (state[0] === index && item.legend) {
-    components.push(
-      <View style={[styles.legend, {left: size}]}>{item.legend}</View>,
-    );
+
+    const style = {};
+    if (cumulativePercent + percent <= 25) {
+      style.left = size;
+      style.top = top;
+    } else if (cumulativePercent + percent <= 50) {
+      style.left = size;
+      style.bottom = size - top - height;
+    } else if (cumulativePercent + percent <= 75) {
+      style.right = size;
+      style.bottom = Math.max(0, top - size);
+    } else {
+      style.right = size;
+      style.top = size * 2 - acc;
+    }
+    components.push(<View style={[styles.legend, style]}>{item.legend}</View>);
   }
   return components;
 };
