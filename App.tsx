@@ -1,17 +1,23 @@
 import React from 'react';
-import Donut from './Donut';
+import DonutContainer from './DonutContainer';
 import {View} from 'react-native';
 const App = () => {
   return (
-    <View style={{padding: 50}}>
-      <Donut
+    <View style={{marginTop: 100}}>
+      <DonutContainer
         total={1000}
         size={200}
         data={[
-          {value: 200, color: 'green', onPress: () => alert('green')},
-          {value: 450, color: 'yellow', onPress: () => alert('yellow')},
-          {value: 100, color: 'blue'},
-          {value: 1, color: 'red'},
+          // {value: 100, color: 'green'},
+          // {value: 200, color: 'red'},
+          // {value: 100, color: 'blue'},
+          // {value: 400, color: 'orange'},
+          // {value: 100, color: 'black'},
+          // {value: 200, color: 'brown'},
+
+
+          {value: 500, color: 'green'},
+          {value: 500, color: 'red'},
         ]}
       />
     </View>
