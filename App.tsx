@@ -1,9 +1,9 @@
 import React from 'react';
 import DonutContainer from './DonutContainer';
-import {Text, View} from 'react-native';
+import {StyleSheet, Text, View} from 'react-native';
 
 const Legend = (title, subtitle, backgroundColor) => (
-  <View>
+  <View style={styles.legend}>
     <Text>{title}</Text>
     <Text>{subtitle}</Text>
     <View
@@ -68,3 +68,16 @@ const App = () => {
 };
 
 export default App;
+
+const styles = StyleSheet.create({
+  legend: {
+    padding: 10,
+    backgroundColor: 'white',
+    shadowColor: '#171717',
+    shadowOffset: {width: 0, height: 1},
+    shadowOpacity: 0.2,
+    shadowRadius: 3,
+    elevation: 3,
+    borderRadius: 10,
+  },
+});
