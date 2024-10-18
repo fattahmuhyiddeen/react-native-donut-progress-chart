@@ -45,10 +45,10 @@ const Part = ({index, total, size, data, state}) => {
       />,
     );
   } else {
-    const part2Height =
-      top < size && top + height > size ? top + height - size : 0;
+    const acc = top + height;
+    const part2Height = top < size && acc > size ? acc - size : 0;
 
-    if (height + top > size) height = size - top;
+    if (acc > size) height = size - top;
 
     components.push(
       <>
