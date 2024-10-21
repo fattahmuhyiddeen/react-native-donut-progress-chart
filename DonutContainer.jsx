@@ -91,7 +91,9 @@ export default props => {
   const {size = 200, data} = props;
   const state = useState();
   return (
-    <View style={{alignItems: 'center', justifyContent: 'center'}}>
+    <Pressable
+      style={{alignItems: 'center', justifyContent: 'center'}}
+      onPress={() => state[1]()}>
       <Donut {...props} />
       <View
         style={{
@@ -103,6 +105,6 @@ export default props => {
           <Part {...props} index={i} state={state} />
         ))}
       </View>
-    </View>
+    </Pressable>
   );
 };
