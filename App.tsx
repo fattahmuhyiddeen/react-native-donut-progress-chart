@@ -59,8 +59,38 @@ const App = () => {
             legend: Legend('Desmond', '24GB used', 'turquoise'),
           },
 
-          // {value: 500, color: 'green'},
-          // {value: 500, color: 'red'},
+          // {
+          //   value: 500,
+          //   color: 'green',
+          //   legend: Legend('Desmond', '24GB used', 'green'),
+          // },
+          // {
+          //   value: 500,
+          //   color: 'red',
+          //   legend: Legend('Desmond', '24GB used', 'red'),
+          // },
+
+
+          // {
+          //   value: 250,
+          //   color: 'green',
+          //   legend: Legend('Desmond', '24GB used', 'green'),
+          // },
+          // {
+          //   value: 250,
+          //   color: 'red',
+          //   legend: Legend('Desmond', '24GB used', 'red'),
+          // },
+          // {
+          //   value: 250,
+          //   color: 'green',
+          //   legend: Legend('Desmond', '24GB used', 'green'),
+          // },
+          // {
+          //   value: 250,
+          //   color: 'red',
+          //   legend: Legend('Desmond', '24GB used', 'red'),
+          // },
         ]}
       />
     </View>

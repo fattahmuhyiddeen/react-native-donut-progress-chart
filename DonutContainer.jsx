@@ -24,8 +24,8 @@ const Part = ({index, total, size, data, state}) => {
   }
 
   const style = {
-    backgroundColor: item.color,
-    opacity: 0.5,
+    // backgroundColor: item.color,
+    // opacity: 0.5,
     width,
     position: 'absolute',
   };
