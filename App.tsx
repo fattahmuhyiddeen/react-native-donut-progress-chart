@@ -1,5 +1,5 @@
 import React from 'react';
-import DonutContainer from './DonutContainer';
+import DonutContainer from 'react-native-multi-layer-donut-chart';
 import {StyleSheet, Text, View} from 'react-native';
 
 const Legend = (title, subtitle, backgroundColor) => (
@@ -70,7 +70,6 @@ const App = () => {
           //   legend: Legend('Desmond', '24GB used', 'red'),
           // },
 
-
           // {
           //   value: 250,
           //   color: 'green',
@@ -91,8 +90,10 @@ const App = () => {
           //   color: 'red',
           //   legend: Legend('Desmond', '24GB used', 'red'),
           // },
-        ]}
-      />
+        ]}>
+        <Text style={{fontWeight: 'bold'}}>Title</Text>
+        <Text>Subtitle</Text>
+      </DonutContainer>
     </View>
   );
 };
