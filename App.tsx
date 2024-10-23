@@ -2,9 +2,9 @@ import React from 'react';
 import DonutContainer from 'react-native-multi-layer-donut-chart';
 import {StyleSheet, Text, View} from 'react-native';
 
-const Legend = (title, subtitle, backgroundColor) => (
+const Legend = (subtitle, backgroundColor) => (
   <View style={styles.legend}>
-    <Text>{title}</Text>
+    <Text style={{fontWeight: 'bold'}}>{backgroundColor.toUpperCase()}</Text>
     <Text>{subtitle}</Text>
     <View
       style={{
@@ -24,71 +24,76 @@ const App = () => {
         size={150}
         data={[
           {
-            value: 100,
+            value: 60,
             color: 'green',
-            legend: Legend('Desmond', '24GB used', 'green'),
+            legend: Legend('24GB used', 'green'),
+          },
+          {
+            value: 60,
+            color: 'gray',
+            legend: Legend('24GB used', 'gray'),
           },
           {
             value: 200,
             color: 'red',
-            legend: Legend('Desmond', '24GB used', 'red'),
+            legend: Legend('24GB used', 'red'),
           },
           {
             value: 100,
             color: 'blue',
-            legend: Legend('Desmond', '24GB used', 'blue'),
+            legend: Legend('24GB used', 'blue'),
           },
           {
             value: 300,
             color: 'orange',
-            legend: Legend('Desmond', '24GB used', 'orange'),
+            legend: Legend('24GB used', 'orange'),
           },
           {
             value: 100,
             color: 'black',
-            legend: Legend('Desmond', '24GB used', 'black'),
+            legend: Legend('24GB used', 'black'),
           },
           {
             value: 100,
             color: 'brown',
-            legend: Legend('Desmond', '24GB used', 'brown'),
+            legend: Legend('24GB used', 'brown'),
           },
           {
             value: 100,
             color: 'turquoise',
-            legend: Legend('Desmond', '24GB used', 'turquoise'),
+            legend: Legend('24GB used', 'turquoise'),
           },
 
           // {
           //   value: 500,
           //   color: 'green',
-          //   legend: Legend('Desmond', '24GB used', 'green'),
+          //   legend: Legend('24GB used', 'green'),
           // },
           // {
           //   value: 500,
           //   color: 'red',
-          //   legend: Legend('Desmond', '24GB used', 'red'),
+          //   legend: Legend('24GB used', 'red'),
           // },
 
           // {
           //   value: 250,
           //   color: 'green',
-          //   legend: Legend('Desmond', '24GB used', 'green'),
+          //   legend: Legend('24GB used', 'green'),
           // },
           // {
           //   value: 250,
           //   color: 'red',
-          //   legend: Legend('Desmond', '24GB used', 'red'),
+          //   legend: Legend('24GB used', 'red'),
           // },
           // {
           //   value: 250,
           //   color: 'green',
-          //   legend: Legend('Desmond', '24GB used', 'green'),
+          //   legend: Legend('24GB used', 'green'),
           // },
           // {
           //   value: 250,
           //   color: 'red',
-          //   legend: Legend('Desmond', '24GB used', 'red'),
+          //   legend: Legend('24GB used', 'red'),
           // },
         ]}>
         <Text style={{fontWeight: 'bold'}}>Title</Text>
