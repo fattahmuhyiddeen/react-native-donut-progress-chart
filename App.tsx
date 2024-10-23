@@ -26,74 +26,74 @@ const App = () => {
           {
             value: 60,
             color: 'green',
-            legend: Legend('24GB used', 'green'),
+            legend: Legend('description', 'green'),
           },
           {
             value: 60,
             color: 'gray',
-            legend: Legend('24GB used', 'gray'),
+            legend: Legend('description', 'gray'),
           },
           {
             value: 200,
             color: 'red',
-            legend: Legend('24GB used', 'red'),
+            legend: Legend('description', 'red'),
           },
           {
             value: 100,
             color: 'blue',
-            legend: Legend('24GB used', 'blue'),
+            legend: Legend('description', 'blue'),
           },
           {
             value: 300,
             color: 'orange',
-            legend: Legend('24GB used', 'orange'),
+            legend: Legend('description', 'orange'),
           },
           {
             value: 100,
             color: 'black',
-            legend: Legend('24GB used', 'black'),
+            legend: Legend('description', 'black'),
           },
           {
             value: 100,
             color: 'brown',
-            legend: Legend('24GB used', 'brown'),
+            legend: Legend('description', 'brown'),
           },
           {
             value: 100,
             color: 'turquoise',
-            legend: Legend('24GB used', 'turquoise'),
+            legend: Legend('description', 'turquoise'),
           },
 
           // {
           //   value: 500,
           //   color: 'green',
-          //   legend: Legend('24GB used', 'green'),
+          //   legend: Legend('description', 'green'),
           // },
           // {
           //   value: 500,
           //   color: 'red',
-          //   legend: Legend('24GB used', 'red'),
+          //   legend: Legend('description', 'red'),
           // },
 
           // {
           //   value: 250,
           //   color: 'green',
-          //   legend: Legend('24GB used', 'green'),
+          //   legend: Legend('description', 'green'),
           // },
           // {
           //   value: 250,
           //   color: 'red',
-          //   legend: Legend('24GB used', 'red'),
+          //   legend: Legend('description', 'red'),
           // },
           // {
           //   value: 250,
           //   color: 'green',
-          //   legend: Legend('24GB used', 'green'),
+          //   legend: Legend('description', 'green'),
           // },
           // {
           //   value: 250,
           //   color: 'red',
-          //   legend: Legend('24GB used', 'red'),
+          //   legend: Legend('description', 'red'),
           // },
         ]}>
         <Text style={{fontWeight: 'bold'}}>Title</Text>
