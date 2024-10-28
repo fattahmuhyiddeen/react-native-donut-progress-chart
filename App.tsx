@@ -21,7 +21,7 @@ const App = () => {
     <View style={{marginTop: 100}}>
       <DonutContainer
         total={1000}
-        size={150}
+        size={150} // default 200
         data={[
           {
             value: 60,
